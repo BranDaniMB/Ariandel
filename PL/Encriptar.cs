@@ -13,10 +13,10 @@ using Microsoft.VisualBasic;
 
 namespace PL
 {
-    public partial class Main : Form
+    public partial class Encriptar : Form
     {
         Cypher cypher;
-        public Main()
+        public Encriptar()
         {
             InitializeComponent();
         }

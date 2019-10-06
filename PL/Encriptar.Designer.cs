@@ -1,6 +1,6 @@
 ﻿namespace PL
 {
-    partial class Main
+    partial class Encriptar
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -31,7 +31,7 @@
             this.Title = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.Label();
             this.TextBox = new System.Windows.Forms.TextBox();
-            this.Encriptar = new System.Windows.Forms.Label();
+            this.Done = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Title
@@ -73,16 +73,16 @@
             // 
             // Encriptar
             // 
-            this.Encriptar.AutoSize = true;
-            this.Encriptar.BackColor = System.Drawing.SystemColors.ControlText;
-            this.Encriptar.Font = new System.Drawing.Font("Fira Mono", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Encriptar.ForeColor = System.Drawing.SystemColors.Control;
-            this.Encriptar.Location = new System.Drawing.Point(306, 438);
-            this.Encriptar.Name = "Encriptar";
-            this.Encriptar.Size = new System.Drawing.Size(188, 38);
-            this.Encriptar.TabIndex = 3;
-            this.Encriptar.Text = "Encriptar";
-            this.Encriptar.Click += new System.EventHandler(this.Encriptar_Click);
+            this.Done.AutoSize = true;
+            this.Done.BackColor = System.Drawing.SystemColors.ControlText;
+            this.Done.Font = new System.Drawing.Font("Fira Mono", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Done.ForeColor = System.Drawing.SystemColors.Control;
+            this.Done.Location = new System.Drawing.Point(306, 438);
+            this.Done.Name = "Encriptar";
+            this.Done.Size = new System.Drawing.Size(188, 38);
+            this.Done.TabIndex = 3;
+            this.Done.Text = "Encriptar";
+            this.Done.Click += new System.EventHandler(this.Encriptar_Click);
             // 
             // Main
             // 
@@ -91,7 +91,7 @@
             this.BackgroundImage = global::PL.Properties.Resources._516683;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 587);
-            this.Controls.Add(this.Encriptar);
+            this.Controls.Add(this.Done);
             this.Controls.Add(this.TextBox);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.Title);
@@ -109,7 +109,7 @@
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Label Exit;
         private System.Windows.Forms.TextBox TextBox;
-        private System.Windows.Forms.Label Encriptar;
+        private System.Windows.Forms.Label Done;
     }
 }
 
