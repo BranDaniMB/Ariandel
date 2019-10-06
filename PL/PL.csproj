@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Encript.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,12 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\516683.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Encript\Encript.csproj">
-      <Project>{d948859f-8cb0-43e1-86e5-d04f9000f295}</Project>
-      <Name>Encript</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Encript;
+using Microsoft.VisualBasic;
 
 namespace PL
 {
@@ -35,24 +36,32 @@ namespace PL
             cypher = new Cypher();
             if (validate(TextBox.Text))
             {
-                /*
-                 * string folderPath = "";
+                string folderPath = null;
                 FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
-                if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                do
                 {
-                    folderPath = folderBrowserDialog1.SelectedPath;
-                }
-                MessageBox.Show("Folter " + folderPath);
-                */
+                    if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        folderPath = folderBrowserDialog1.SelectedPath;
+                    }
+                } while (folderPath == null);
+                String fileName = "Cifrado mieo.txt";
+                do
+                {
+                    fileName = Interaction.InputBox("Ingresa el nombre del archivo:", "Guardar encriptación", "Cifrado mieo.txt", -1, -1);
+                } while (!fileName.EndsWith(".txt"));
                 String result = cypher.Encode(TextBox.Text);
-                MessageBox.Show(string.Join(", ", Encoding.Unicode.GetBytes(TextBox.Text)));
-                MessageBox.Show(result);
-                MessageBox.Show(cypher.Decode(result));
-            } else
+                using (StreamWriter outputFile = new StreamWriter(Path.Combine(folderPath, fileName)))
+                {
+                    outputFile.WriteLine(result);
+                }
+
+                MessageBox.Show("Nice try, try again.");
+            }
+            else
             {
                 MessageBox.Show("Texto inválido.");
             }
-            MessageBox.Show("Nice try, try again.");
         }
 
         private bool validate(String txt)
@@ -65,7 +74,7 @@ namespace PL
                 if ((code >= 97 && code <= 122)
                     || (code >= 65 && code <= 90)
                     || (code >= 48 && code <= 57)
-                    || (code == 0 || code == 59 || code == 46 || code == 44 || code == 225 || code == 233 || code == 237 || code == 243 || code == 250 || code == 193 || code == 201 || code == 205 || code == 211 || code == 218 || code == 63 || code == 191 || code == 32))
+                    || (code == 10 || code == 13 || code == 0 || code == 59 || code == 46 || code == 44 || code == 225 || code == 233 || code == 237 || code == 243 || code == 250 || code == 193 || code == 201 || code == 205 || code == 211 || code == 218 || code == 63 || code == 191 || code == 32))
                 {
                     count--;
                 }
