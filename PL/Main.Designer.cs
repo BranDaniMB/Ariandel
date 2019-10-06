@@ -30,7 +30,7 @@
         {
             this.Title = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextBox = new System.Windows.Forms.TextBox();
             this.Encriptar = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -60,16 +60,16 @@
             this.Exit.Text = "EXIT";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // textBox1
+            // TextBox
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Fira Mono", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(42, 138);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBox1.Size = new System.Drawing.Size(716, 232);
-            this.textBox1.TabIndex = 2;
+            this.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBox.Font = new System.Drawing.Font("Fira Mono", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBox.Location = new System.Drawing.Point(42, 138);
+            this.TextBox.Multiline = true;
+            this.TextBox.Name = "TextBox";
+            this.TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.TextBox.Size = new System.Drawing.Size(716, 232);
+            this.TextBox.TabIndex = 2;
             // 
             // Encriptar
             // 
@@ -92,7 +92,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 587);
             this.Controls.Add(this.Encriptar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TextBox);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.Title);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -108,7 +108,7 @@
 
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Label Exit;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextBox;
         private System.Windows.Forms.Label Encriptar;
     }
 }
