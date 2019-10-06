@@ -65,6 +65,7 @@
             this.desencriptar.Size = new System.Drawing.Size(270, 42);
             this.desencriptar.TabIndex = 2;
             this.desencriptar.Text = "Desencriptar";
+            this.desencriptar.Click += new System.EventHandler(this.Desencriptar_Click);
             // 
             // Welcome
             // 
@@ -77,6 +78,7 @@
             this.Controls.Add(this.encriptar);
             this.Controls.Add(this.label1);
             this.Name = "Welcome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome";
             this.ResumeLayout(false);
             this.PerformLayout();

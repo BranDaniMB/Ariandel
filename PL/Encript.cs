@@ -132,6 +132,11 @@ namespace Encript
                 temp = txt.Substring(0, 1);
                 txt = txt.Remove(0, 1);
 
+                if (temp.Equals("\n") || temp.Equals("\r"))
+                {
+                    continue;
+                }
+
                 result = result + (map[temp]);
             } while (txt.Length > 0);
 

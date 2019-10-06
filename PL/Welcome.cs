@@ -22,5 +22,11 @@ namespace PL
             Encriptar encriptar = new Encriptar();
             encriptar.ShowDialog();
         }
+
+        private void Desencriptar_Click(object sender, EventArgs e)
+        {
+            Desencriptar desencriptar = new Desencriptar();
+            desencriptar.ShowDialog();
+        }
     }
 }

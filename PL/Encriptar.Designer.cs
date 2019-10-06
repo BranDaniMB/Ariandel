@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.Title = new System.Windows.Forms.Label();
-            this.Exit = new System.Windows.Forms.Label();
             this.TextBox = new System.Windows.Forms.TextBox();
             this.Done = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -47,19 +46,6 @@
             this.Title.Text = "Project Ariandel";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Exit
-            // 
-            this.Exit.AutoSize = true;
-            this.Exit.BackColor = System.Drawing.SystemColors.ControlText;
-            this.Exit.Font = new System.Drawing.Font("Fira Mono", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit.ForeColor = System.Drawing.Color.White;
-            this.Exit.Location = new System.Drawing.Point(361, 544);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(79, 32);
-            this.Exit.TabIndex = 1;
-            this.Exit.Text = "EXIT";
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
-            // 
             // TextBox
             // 
             this.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -68,35 +54,33 @@
             this.TextBox.Multiline = true;
             this.TextBox.Name = "TextBox";
             this.TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.TextBox.Size = new System.Drawing.Size(716, 232);
+            this.TextBox.Size = new System.Drawing.Size(716, 251);
             this.TextBox.TabIndex = 2;
             // 
-            // Encriptar
+            // Done
             // 
             this.Done.AutoSize = true;
-            this.Done.BackColor = System.Drawing.SystemColors.ControlText;
+            this.Done.BackColor = System.Drawing.SystemColors.Control;
             this.Done.Font = new System.Drawing.Font("Fira Mono", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Done.ForeColor = System.Drawing.SystemColors.Control;
+            this.Done.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Done.Location = new System.Drawing.Point(306, 438);
-            this.Done.Name = "Encriptar";
+            this.Done.Name = "Done";
             this.Done.Size = new System.Drawing.Size(188, 38);
             this.Done.TabIndex = 3;
             this.Done.Text = "Encriptar";
             this.Done.Click += new System.EventHandler(this.Encriptar_Click);
             // 
-            // Main
+            // Encriptar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PL.Properties.Resources._516683;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 587);
+            this.ClientSize = new System.Drawing.Size(800, 496);
             this.Controls.Add(this.Done);
             this.Controls.Add(this.TextBox);
-            this.Controls.Add(this.Exit);
             this.Controls.Add(this.Title);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Main";
+            this.Name = "Encriptar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ariandel";
             this.ResumeLayout(false);
@@ -107,7 +91,6 @@
         #endregion
 
         private System.Windows.Forms.Label Title;
-        private System.Windows.Forms.Label Exit;
         private System.Windows.Forms.TextBox TextBox;
         private System.Windows.Forms.Label Done;
     }
