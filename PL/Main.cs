@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Encript;
 
 namespace PL
 {
     public partial class Main : Form
     {
+        Cypher cypher;
         public Main()
         {
             InitializeComponent();
@@ -30,15 +32,22 @@ namespace PL
 
         private void Encriptar_Click(object sender, EventArgs e)
         {
+            cypher = new Cypher();
             if (validate(TextBox.Text))
             {
-                string folderPath = "";
+                /*
+                 * string folderPath = "";
                 FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
                 if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
                 {
                     folderPath = folderBrowserDialog1.SelectedPath;
                 }
                 MessageBox.Show("Folter " + folderPath);
+                */
+                String result = cypher.Encode(TextBox.Text);
+                MessageBox.Show(string.Join(", ", Encoding.Unicode.GetBytes(TextBox.Text)));
+                MessageBox.Show(result);
+                MessageBox.Show(cypher.Decode(result));
             } else
             {
                 MessageBox.Show("Texto inválido.");
@@ -48,7 +57,7 @@ namespace PL
 
         private bool validate(String txt)
         { 
-            byte[] codes = Encoding.ASCII.GetBytes(txt);
+            byte[] codes = Encoding.Unicode.GetBytes(txt);
             int count = codes.Length;
             for (int i = 0; i < codes.Length; i++)
             {
@@ -56,7 +65,7 @@ namespace PL
                 if ((code >= 97 && code <= 122)
                     || (code >= 65 && code <= 90)
                     || (code >= 48 && code <= 57)
-                    || (code == 59 || code == 46 || code == 44 || code == 225 || code == 233 || code == 237 || code == 243 || code == 250 || code == 193 || code == 201 || code == 205 || code == 211 || code == 218 || code == 63 || code == 191 || code == 32))
+                    || (code == 0 || code == 59 || code == 46 || code == 44 || code == 225 || code == 233 || code == 237 || code == 243 || code == 250 || code == 193 || code == 201 || code == 205 || code == 211 || code == 218 || code == 63 || code == 191 || code == 32))
                 {
                     count--;
                 }
