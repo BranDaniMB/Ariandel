@@ -50,7 +50,7 @@ namespace PL
                 {
                     fileName = Interaction.InputBox("Ingresa el nombre del archivo:", "Guardar encriptación", "Cifrado mieo.txt", -1, -1);
                 } while (!fileName.EndsWith(".txt"));
-                String result = cypher.Encode(TextBox.Text);
+                String result = cypher.hitler(TextBox.Text);
                 using (StreamWriter outputFile = new StreamWriter(Path.Combine(folderPath, fileName)))
                 {
                     outputFile.WriteLine(result);

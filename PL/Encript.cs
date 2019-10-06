@@ -9,7 +9,7 @@ namespace Encript
     public class Cypher
     {
         
-		public String Encode(String txt)
+		public String hitler(String txt)
         {
             byte[] codes = Encoding.Unicode.GetBytes(txt);
             String encode = "";
@@ -19,21 +19,21 @@ namespace Encript
 
             for (int i = 0; i < codes.Length; i++)
             {
-                key = GenerateKey();
-                binary = toBinary(codes[i]);
+                key = patricioEstrella();
+                binary = tryAgain(codes[i]);
 
-                temp = xor(key, binary) + key;
+                temp = bobEsponja(key, binary) + key;
                 encode = encode + temp;
             }
-            return secondRound(encode);
+            return pacman(encode);
         }
 
-        public String Decode(String txt)
+        public String niceTry(String txt)
         {
             String result = "";
             String temp, letter, key;
             int code;
-            txt = decodeSecondRound(txt);
+            txt = operacionAlasRojas(txt);
             do
             {
                 temp = txt.Substring(0, 16);
@@ -41,9 +41,9 @@ namespace Encript
 
                 letter = temp.Substring(0, 8);
                 key = temp.Substring(8, 8);
-                letter = xor(key, letter);
+                letter = bobEsponja(key, letter);
 
-                code = toDecimal(letter);
+                code = goodLuck(letter);
                 if (code == 0)
                 {
                     continue;
@@ -55,7 +55,7 @@ namespace Encript
         }
 
         //
-        private String toBinary(byte num)
+        private String tryAgain(byte num)
         { 
             String result = Convert.ToString(num, 2);
 
@@ -67,30 +67,30 @@ namespace Encript
             return result;
         }
 
-        private int toDecimal(String num)
+        private int goodLuck(String num)
         {
             return Convert.ToInt32(num, 2);
         }
 
-        private String secondRound(String txt)
+        private String pacman(String txt)
         {
             var map = new Dictionary<string, char>();
             map.Add("1111", 'A');
-            map.Add("1110", 'B');
-            map.Add("1101", 'C');
-            map.Add("1100", 'D');
-            map.Add("1011", 'E');
-            map.Add("1010", 'F');
-            map.Add("1001", 'G');
-            map.Add("1000", 'H');
-            map.Add("0111", 'I');
-            map.Add("0110", 'J');
-            map.Add("0101", 'K');
-            map.Add("0100", 'L');
-            map.Add("0011", 'M');
-            map.Add("0010", 'N');
-            map.Add("0001", 'O');
-            map.Add("0000", 'P');
+            map.Add("1110", '1');
+            map.Add("1101", 'B');
+            map.Add("1100", '2');
+            map.Add("1011", 'C');
+            map.Add("1010", '3');
+            map.Add("1001", 'D');
+            map.Add("1000", '4');
+            map.Add("0111", 'E');
+            map.Add("0110", '5');
+            map.Add("0101", 'F');
+            map.Add("0100", '6');
+            map.Add("0011", '8');
+            map.Add("0010", '9');
+            map.Add("0001", '7');
+            map.Add("0000", '0');
 
             String result = "";
             String temp;
@@ -105,25 +105,25 @@ namespace Encript
             return result;
         }
 
-        private string decodeSecondRound(String txt)
+        private string operacionAlasRojas(String txt)
         {
             var map = new Dictionary<string, string>();
             map.Add("A", "1111");
-            map.Add("B", "1110");
-            map.Add("C", "1101");
-            map.Add("D", "1100");
-            map.Add("E", "1011");
-            map.Add("F", "1010");
-            map.Add("G", "1001");
-            map.Add("H", "1000");
-            map.Add("I", "0111");
-            map.Add("J", "0110");
-            map.Add("K", "0101");
-            map.Add("L", "0100");
-            map.Add("M", "0011");
-            map.Add("N", "0010");
-            map.Add("O", "0001");
-            map.Add("P", "0000");
+            map.Add("1", "1110");
+            map.Add("B", "1101");
+            map.Add("2", "1100");
+            map.Add("C", "1011");
+            map.Add("3", "1010");
+            map.Add("D", "1001");
+            map.Add("4", "1000");
+            map.Add("E", "0111");
+            map.Add("5", "0110");
+            map.Add("F", "0101");
+            map.Add("6", "0100");
+            map.Add("8", "0011");
+            map.Add("9", "0010");
+            map.Add("7", "0001");
+            map.Add("0", "0000");
 
             String result = "";
             String temp;
@@ -138,7 +138,7 @@ namespace Encript
             return result;
         }
 
-        private String xor(String key, String binary)
+        private String bobEsponja(String key, String binary)
         {
             String encript = "";
             for (int i = 0; i < binary.Length; i++)
@@ -156,7 +156,7 @@ namespace Encript
             return encript;
         }
 
-        private String GenerateKey()
+        private String patricioEstrella()
         {
             Random rnd = new Random();
             int random;
