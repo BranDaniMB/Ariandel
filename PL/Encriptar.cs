@@ -56,11 +56,11 @@ namespace PL
                     outputFile.WriteLine(result);
                 }
 
-                MessageBox.Show("Nice try, try again.");
+                MessageBox.Show("Encriptado con éxito", "Mensaje importante");
             }
             else
             {
-                MessageBox.Show("Texto inválido.");
+                MessageBox.Show("Uno de los caracteres ingresados no es válido.", "Texto inválido");
             }
         }
 

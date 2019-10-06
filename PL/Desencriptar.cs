@@ -55,7 +55,7 @@ namespace PL
             String fileName = "Texto original.txt";
             do
             {
-                fileName = Interaction.InputBox("Ingresa el nombre del archivo:", "Guardar encriptación", "Cifrado mieo.txt", -1, -1);
+                fileName = Interaction.InputBox("Ingresa el nombre del archivo:", "Guardar desencriptación", "Texto original.txt", -1, -1);
             } while (!fileName.EndsWith(".txt"));
 
             using (StreamWriter outputFile = new StreamWriter(Path.Combine(folderPath, fileName)))
@@ -63,6 +63,7 @@ namespace PL
                 outputFile.WriteLine(result);
             }
 
+            MessageBox.Show("Desencriptado con éxito", "Mensaje importante");
         }
     }
 }
