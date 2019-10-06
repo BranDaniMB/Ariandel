@@ -25,7 +25,7 @@ namespace Encript
                 temp = xor(key, binary) + key;
                 encode = encode + temp;
             }
-            return encode;
+            return secondRound(encode);
         }
 
         public String Decode(String txt)
@@ -33,6 +33,7 @@ namespace Encript
             String result = "";
             String temp, letter, key;
             int code;
+            txt = decodeSecondRound(txt);
             do
             {
                 temp = txt.Substring(0, 16);
@@ -98,7 +99,40 @@ namespace Encript
                 temp = txt.Substring(0, 4);
                 txt = txt.Remove(0, 4);
 
-                result.Append(map[temp]);
+                result = result + map[temp];
+            } while (txt.Length > 0);
+
+            return result;
+        }
+
+        private string decodeSecondRound(String txt)
+        {
+            var map = new Dictionary<string, string>();
+            map.Add("A", "1111");
+            map.Add("B", "1110");
+            map.Add("C", "1101");
+            map.Add("D", "1100");
+            map.Add("E", "1011");
+            map.Add("F", "1010");
+            map.Add("G", "1001");
+            map.Add("H", "1000");
+            map.Add("I", "0111");
+            map.Add("J", "0110");
+            map.Add("K", "0101");
+            map.Add("L", "0100");
+            map.Add("M", "0011");
+            map.Add("N", "0010");
+            map.Add("O", "0001");
+            map.Add("P", "0000");
+
+            String result = "";
+            String temp;
+            do
+            {
+                temp = txt.Substring(0, 1);
+                txt = txt.Remove(0, 1);
+
+                result = result + (map[temp]);
             } while (txt.Length > 0);
 
             return result;
