@@ -13,34 +13,33 @@ namespace Encript
         {
             byte[] codes = Encoding.Unicode.GetBytes(txt);
             String encode = "";
-            String key;
+            String key = patricioEstrella();
             String binary;
             String temp;
 
             for (int i = 0; i < codes.Length; i++)
             {
-                key = patricioEstrella();
                 binary = tryAgain(codes[i]);
 
-                temp = bobEsponja(key, binary) + key;
+                temp = bobEsponja(key, binary);
                 encode = encode + temp;
             }
-            return pacman(encode);
+            return pacman(key + encode);
         }
 
         public String niceTry(String txt)
         {
             String result = "";
-            String temp, letter, key;
+            String letter, key;
             int code;
             txt = operacionAlasRojas(txt);
+            key = txt.Substring(0, 8);
+            txt = txt.Remove(0, 8);
             do
             {
-                temp = txt.Substring(0, 16);
-                txt = txt.Remove(0, 16);
 
-                letter = temp.Substring(0, 8);
-                key = temp.Substring(8, 8);
+                letter = txt.Substring(0, 8);
+                txt = txt.Remove(0, 8);
                 letter = bobEsponja(key, letter);
 
                 code = goodLuck(letter);

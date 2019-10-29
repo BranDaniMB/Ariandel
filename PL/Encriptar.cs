@@ -65,22 +65,52 @@ namespace PL
         }
 
         private bool validate(String txt)
-        { 
+        {
             byte[] codes = Encoding.Unicode.GetBytes(txt);
             int count = codes.Length;
+            int letterCount = 0;
+            for (int i = 0; i < codes.Length; i++)
+            {
+                byte code = codes[i];
+                if (code == 0)
+                {
+                    count--;
+                }
+                else if ((code >= 97 && code <= 122)
+                    || (code >= 65 && code <= 90)
+                    || (code >= 48 && code <= 57)
+                    || (code == 13 || code == 10 || code == 59 || code == 46 || code == 44 || code == 225 || code == 233 || code == 237 || code == 243 || code == 250 || code == 193 || code == 201 || code == 205 || code == 211 || code == 218 || code == 63 || code == 191 || code == 32))
+                {
+                    count--;
+                    letterCount++;
+                }
+            }
+
+            if (letterCount > 255)
+            {
+                MessageBox.Show("Recuerda que estás ingresando más de 300 caracteres.", "Mensaje importante");
+            }
+
+            return count == 0;
+        }
+
+        private void check(object sender, EventArgs e)
+        {
+            byte[] codes = Encoding.Unicode.GetBytes(TextBox.Text);
+            int letterCount = 0;
             for (int i = 0; i < codes.Length; i++)
             {
                 byte code = codes[i];
                 if ((code >= 97 && code <= 122)
                     || (code >= 65 && code <= 90)
                     || (code >= 48 && code <= 57)
-                    || (code == 10 || code == 13 || code == 0 || code == 59 || code == 46 || code == 44 || code == 225 || code == 233 || code == 237 || code == 243 || code == 250 || code == 193 || code == 201 || code == 205 || code == 211 || code == 218 || code == 63 || code == 191 || code == 32))
+                    || (code == 13 || code == 10 || code == 59 || code == 46 || code == 44 || code == 225 || code == 233 || code == 237 || code == 243 || code == 250 || code == 193 || code == 201 || code == 205 || code == 211 || code == 218 || code == 63 || code == 191 || code == 32))
                 {
-                    count--;
+                    letterCount++;
                 }
             }
 
-            return count == 0;
+            countText.Text = "Caracteres: " + letterCount;
         }
     }
 }

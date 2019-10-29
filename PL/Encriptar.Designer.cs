@@ -31,6 +31,7 @@
             this.Title = new System.Windows.Forms.Label();
             this.TextBox = new System.Windows.Forms.TextBox();
             this.Done = new System.Windows.Forms.Label();
+            this.countText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Title
@@ -50,12 +51,13 @@
             // 
             this.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBox.Font = new System.Drawing.Font("Fira Mono", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBox.Location = new System.Drawing.Point(42, 138);
+            this.TextBox.Location = new System.Drawing.Point(42, 100);
             this.TextBox.Multiline = true;
             this.TextBox.Name = "TextBox";
             this.TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.TextBox.Size = new System.Drawing.Size(716, 251);
             this.TextBox.TabIndex = 2;
+            this.TextBox.TextChanged += new System.EventHandler(this.check);
             // 
             // Done
             // 
@@ -70,6 +72,16 @@
             this.Done.Text = "Encriptar";
             this.Done.Click += new System.EventHandler(this.Encriptar_Click);
             // 
+            // countText
+            // 
+            this.countText.AutoSize = true;
+            this.countText.Font = new System.Drawing.Font("Fira Mono Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.countText.Location = new System.Drawing.Point(42, 351);
+            this.countText.Name = "countText";
+            this.countText.Size = new System.Drawing.Size(194, 26);
+            this.countText.TabIndex = 4;
+            this.countText.Text = "Caracteres: 0";
+            // 
             // Encriptar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -77,6 +89,7 @@
             this.BackgroundImage = global::PL.Properties.Resources._516683;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 496);
+            this.Controls.Add(this.countText);
             this.Controls.Add(this.Done);
             this.Controls.Add(this.TextBox);
             this.Controls.Add(this.Title);
@@ -93,6 +106,7 @@
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.TextBox TextBox;
         private System.Windows.Forms.Label Done;
+        private System.Windows.Forms.Label countText;
     }
 }
 
