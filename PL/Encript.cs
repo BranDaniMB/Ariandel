@@ -8,171 +8,232 @@ namespace Encript
 {
     public class Cypher
     {
-        
-		public String hitler(String txt)
+        public String encrypt(String text)
         {
-            byte[] codes = Encoding.Unicode.GetBytes(txt);
-            String encode = "";
-            String key = patricioEstrella();
-            String binary;
-            String temp;
-
-            for (int i = 0; i < codes.Length; i++)
-            {
-                binary = tryAgain(codes[i]);
-
-                temp = bobEsponja(key, binary);
-                encode = encode + temp;
-            }
-            return pacman(key + encode);
+            LinkedList list = new LinkedList(text, true);
+            return list.ToString();
         }
 
-        public String niceTry(String txt)
+        public String decrypt(String text)
         {
-            String result = "";
-            String letter, key;
-            int code;
-            txt = operacionAlasRojas(txt);
-            key = txt.Substring(0, 8);
-            txt = txt.Remove(0, 8);
-            do
+            LinkedList list = new LinkedList(text, false);
+            return list.ToString();
+        }
+
+        private class LinkedList
+        {
+            private Node first, last;
+
+            public LinkedList(string text, bool mode)
             {
-
-                letter = txt.Substring(0, 8);
-                txt = txt.Remove(0, 8);
-                letter = bobEsponja(key, letter);
-
-                code = goodLuck(letter);
-                if (code == 0)
+                if (mode)
                 {
-                    continue;
-                }
-                result = result + ((char)code);
-            } while (txt.Length > 0);
-
-            return result;
-        }
-
-        //
-        private String tryAgain(byte num)
-        { 
-            String result = Convert.ToString(num, 2);
-
-            while (result.Length < 8)
-            {
-                result = "0" + result;
-            }
-
-            return result;
-        }
-
-        private int goodLuck(String num)
-        {
-            return Convert.ToInt32(num, 2);
-        }
-
-        private String pacman(String txt)
-        {
-            var map = new Dictionary<string, char>();
-            map.Add("1111", 'A');
-            map.Add("1110", '1');
-            map.Add("1101", 'B');
-            map.Add("1100", '2');
-            map.Add("1011", 'C');
-            map.Add("1010", '3');
-            map.Add("1001", 'D');
-            map.Add("1000", '4');
-            map.Add("0111", 'E');
-            map.Add("0110", '5');
-            map.Add("0101", 'F');
-            map.Add("0100", '6');
-            map.Add("0011", '8');
-            map.Add("0010", '9');
-            map.Add("0001", '7');
-            map.Add("0000", '0');
-
-            String result = "";
-            String temp;
-            do
-            {
-                temp = txt.Substring(0, 4);
-                txt = txt.Remove(0, 4);
-
-                result = result + map[temp];
-            } while (txt.Length > 0);
-
-            return result;
-        }
-
-        private string operacionAlasRojas(String txt)
-        {
-            var map = new Dictionary<string, string>();
-            map.Add("A", "1111");
-            map.Add("1", "1110");
-            map.Add("B", "1101");
-            map.Add("2", "1100");
-            map.Add("C", "1011");
-            map.Add("3", "1010");
-            map.Add("D", "1001");
-            map.Add("4", "1000");
-            map.Add("E", "0111");
-            map.Add("5", "0110");
-            map.Add("F", "0101");
-            map.Add("6", "0100");
-            map.Add("8", "0011");
-            map.Add("9", "0010");
-            map.Add("7", "0001");
-            map.Add("0", "0000");
-
-            String result = "";
-            String temp;
-            do
-            {
-                temp = txt.Substring(0, 1);
-                txt = txt.Remove(0, 1);
-
-                if (temp.Equals("\n") || temp.Equals("\r"))
+                    fillToEncrypt(text);
+                    encrypt();
+                } else
                 {
-                    continue;
-                }
-
-                result = result + (map[temp]);
-            } while (txt.Length > 0);
-
-            return result;
-        }
-
-        private String bobEsponja(String key, String binary)
-        {
-            String encript = "";
-            for (int i = 0; i < binary.Length; i++)
-            {
-                if (binary.ElementAt(i).Equals(key.ElementAt(i)))
-                {
-                    encript = encript + "0";
-                }
-                else
-                {
-                    encript = encript + "1";
+                    fillToDecrypt(text);
+                    decrypt();
                 }
             }
 
-            return encript;
-        }
-
-        private String patricioEstrella()
-        {
-            Random rnd = new Random();
-            int random;
-            String key = "";
-
-            for (int i = 0; i < 8; i++)
+            public void add(String content)
             {
-                random = rnd.Next(0, 2);
-                key = random + key;
+                Node temp = new Node(content);
+                if (this.first == null)
+                {
+                    this.first = temp;
+                    this.last = temp;
+                } else
+                {
+                    this.last.setNext(temp);
+                    temp.setPrevious(this.last);
+                    this.last = temp;
+                }
             }
 
-            return key;
+            private String xor(String key, String binary)
+            {
+                String encript = "";
+                for (int i = 0; i < binary.Length; i++)
+                {
+                    if (binary.ElementAt(i).Equals(key.ElementAt(i)))
+                    {
+                        encript = encript + "0";
+                    }
+                    else
+                    {
+                        encript = encript + "1";
+                    }
+                }
+
+                return encript;
+            }
+
+            private String toBinary(byte num)
+            {
+                String result = Convert.ToString(num, 2);
+
+                while (result.Length < 8)
+                {
+                    result = "0" + result;
+                }
+
+                return result;
+            }
+
+            private int toDecimalFromBinary(String num)
+            {
+                return Convert.ToInt32(num, 2);
+            }
+
+            private String toBinaryFromHexa(String num)
+            {
+                String temp = Convert.ToString(Convert.ToInt32(num, 16), 2);
+
+                while (temp.Length < 8)
+                {
+                    temp = "0" + temp;
+                }
+
+                return temp;
+            }
+
+            private String toHexaFromBinary(String num)
+            {
+                String temp = Convert.ToString(Convert.ToInt32(num, 2), 16);
+                while (temp.Length < 2)
+                {
+                    temp = "0" + temp;
+                }
+
+                return temp;
+            }
+
+            private void fillToEncrypt(string text)
+            {
+                byte[] codes = Encoding.Unicode.GetBytes(text);
+
+                foreach(byte code in codes)
+                {
+                    if (code == 0)
+                    {
+                        continue;
+                    }
+                    add(toBinary(code));
+                }
+            }
+
+            private void fillToDecrypt(string text)
+            {
+                while(text.Length > 0)
+                {
+                    string temp = text.Substring(0, 2);
+                    text = text.Remove(0, 2);
+                    if (temp.Equals("\r\n"))
+                    {
+                        continue;
+                    }
+                    temp = toBinaryFromHexa(temp);
+
+                    add(temp);
+                }
+            }
+
+            private void encrypt()
+            {
+                Node tempNode = this.first;
+
+                while (tempNode != null)
+                {
+                    if (tempNode.getNext() == null)
+                    {
+                        tempNode.setContent(toHexaFromBinary(tempNode.getContent()));
+                    } else
+                    {
+                        tempNode.setContent(toHexaFromBinary(xor(tempNode.getNext().getContent(), tempNode.getContent())));
+                    }
+
+                    tempNode = tempNode.getNext();
+                }
+            }
+
+            private void decrypt()
+            {
+                Node tempNode = this.last.getPrevious();
+
+                while (tempNode != null)
+                {
+                    tempNode.setContent(xor(tempNode.getNext().getContent(), tempNode.getContent()));
+
+                    tempNode = tempNode.getPrevious();
+                }
+
+                tempNode = this.first;
+
+                while (tempNode != null)
+                {
+                    tempNode.setContent(((Char) toDecimalFromBinary(tempNode.getContent())).ToString());
+
+                    tempNode = tempNode.getNext();
+                }
+            }
+
+            override
+            public String ToString()
+            {
+                Node tempNode = this.first;
+                String text = "";
+
+                while (tempNode != null)
+                {
+                    text += tempNode.getContent();
+                    tempNode = tempNode.getNext();
+                }
+
+                return text;
+            }
+        }
+
+        private class Node
+        {
+            private Node previous, next;
+            private String content;
+
+            public Node(string content)
+            {
+                this.content = content;
+            }
+
+            public Node getPrevious()
+            {
+                return this.previous;
+            }
+
+            public Node getNext()
+            {
+                return this.next;
+            }
+
+            public String getContent()
+            {
+                return this.content;
+            }
+
+            public void setNext(Node next)
+            {
+                this.next = next;
+            }
+
+            public void setPrevious(Node previous)
+            {
+                this.previous = previous;
+            }
+
+            public void setContent(String content)
+            {
+                this.content = content;
+            }
         }
     }
 }

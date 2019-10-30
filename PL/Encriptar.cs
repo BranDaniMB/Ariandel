@@ -50,7 +50,7 @@ namespace PL
                 {
                     fileName = Interaction.InputBox("Ingresa el nombre del archivo:", "Guardar encriptación", "Cifrado mieo.txt", -1, -1);
                 } while (!fileName.EndsWith(".txt"));
-                String result = cypher.hitler(TextBox.Text);
+                String result = cypher.encrypt(TextBox.Text);
                 using (StreamWriter outputFile = new StreamWriter(Path.Combine(folderPath, fileName)))
                 {
                     outputFile.WriteLine(result);
@@ -88,7 +88,7 @@ namespace PL
 
             if (letterCount > 255)
             {
-                MessageBox.Show("Estás ingresando más de 255 caracteres, pesará más de 1KB.", "Mensaje importante");
+                MessageBox.Show("Estás ingresando más de 511 caracteres, pesará más de 1KB.", "Mensaje importante");
             }
 
             return count == 0;

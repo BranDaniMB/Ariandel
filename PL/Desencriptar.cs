@@ -41,7 +41,7 @@ namespace PL
 
             string text = System.IO.File.ReadAllText(selectedFileName);
 
-            String result = cypher.niceTry(text);
+            String result = cypher.decrypt(text);
 
             string folderPath = null;
             FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
