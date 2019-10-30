@@ -38,11 +38,11 @@
             // 
             this.Title.AutoSize = true;
             this.Title.BackColor = System.Drawing.SystemColors.MenuText;
-            this.Title.Font = new System.Drawing.Font("Fira Mono", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.Font = new System.Drawing.Font("Consolas", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title.ForeColor = System.Drawing.Color.White;
-            this.Title.Location = new System.Drawing.Point(223, 28);
+            this.Title.Location = new System.Drawing.Point(239, 29);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(354, 42);
+            this.Title.Size = new System.Drawing.Size(322, 41);
             this.Title.TabIndex = 0;
             this.Title.Text = "Project Ariandel";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -63,11 +63,11 @@
             // 
             this.Done.AutoSize = true;
             this.Done.BackColor = System.Drawing.SystemColors.Control;
-            this.Done.Font = new System.Drawing.Font("Fira Mono", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Done.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Done.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Done.Location = new System.Drawing.Point(306, 438);
+            this.Done.Location = new System.Drawing.Point(311, 438);
             this.Done.Name = "Done";
-            this.Done.Size = new System.Drawing.Size(188, 38);
+            this.Done.Size = new System.Drawing.Size(179, 37);
             this.Done.TabIndex = 3;
             this.Done.Text = "Encriptar";
             this.Done.Click += new System.EventHandler(this.Encriptar_Click);
@@ -75,10 +75,10 @@
             // countText
             // 
             this.countText.AutoSize = true;
-            this.countText.Font = new System.Drawing.Font("Fira Mono Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.countText.Location = new System.Drawing.Point(42, 351);
+            this.countText.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.countText.Location = new System.Drawing.Point(317, 351);
             this.countText.Name = "countText";
-            this.countText.Size = new System.Drawing.Size(194, 26);
+            this.countText.Size = new System.Drawing.Size(166, 24);
             this.countText.TabIndex = 4;
             this.countText.Text = "Caracteres: 0";
             // 

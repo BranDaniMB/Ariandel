@@ -37,21 +37,21 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Font = new System.Drawing.Font("Fira Mono", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Consolas", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(86, 23);
+            this.label1.Location = new System.Drawing.Point(121, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(614, 45);
+            this.label1.Size = new System.Drawing.Size(559, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome to Project Ariandel";
             // 
             // encriptar
             // 
             this.encriptar.AutoSize = true;
-            this.encriptar.Font = new System.Drawing.Font("Fira Mono", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.encriptar.Location = new System.Drawing.Point(87, 302);
+            this.encriptar.Font = new System.Drawing.Font("Consolas", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.encriptar.Location = new System.Drawing.Point(106, 302);
             this.encriptar.Name = "encriptar";
-            this.encriptar.Size = new System.Drawing.Size(207, 42);
+            this.encriptar.Size = new System.Drawing.Size(189, 41);
             this.encriptar.TabIndex = 1;
             this.encriptar.Text = "Encriptar";
             this.encriptar.Click += new System.EventHandler(this.Encriptar_Click);
@@ -59,10 +59,10 @@
             // desencriptar
             // 
             this.desencriptar.AutoSize = true;
-            this.desencriptar.Font = new System.Drawing.Font("Fira Mono", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.desencriptar.Location = new System.Drawing.Point(430, 302);
+            this.desencriptar.Font = new System.Drawing.Font("Consolas", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.desencriptar.Location = new System.Drawing.Point(449, 302);
             this.desencriptar.Name = "desencriptar";
-            this.desencriptar.Size = new System.Drawing.Size(270, 42);
+            this.desencriptar.Size = new System.Drawing.Size(246, 41);
             this.desencriptar.TabIndex = 2;
             this.desencriptar.Text = "Desencriptar";
             this.desencriptar.Click += new System.EventHandler(this.Desencriptar_Click);
@@ -77,6 +77,7 @@
             this.Controls.Add(this.desencriptar);
             this.Controls.Add(this.encriptar);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Welcome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome";
