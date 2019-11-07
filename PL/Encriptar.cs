@@ -86,7 +86,7 @@ namespace PL
                 }
             }
 
-            if (letterCount > 255)
+            if (letterCount > 511)
             {
                 MessageBox.Show("Estás ingresando más de 511 caracteres, pesará más de 1KB.", "Mensaje importante");
             }
